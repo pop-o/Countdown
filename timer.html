@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown Timer</title>
+    <link rel="stylesheet" href="timer.css" />
+  </head>
+  <body>
+    <div class="box">
+      <div class="heading">CountDown Timer</div>
+      <div class="heading" id="aaa">asd</div>
+
+      <div class="clock">
+        <div class="time">
+          <input type="text" readonly /><br />
+          <label for="days">Days</label>
+        </div>
+        <div class="time">
+          <input type="text" readonly /><br />
+          <label for="hours">Hours</label>
+        </div>
+        <div class="time">
+          <input type="text" readonly /><br />
+          <label for="minutes">Minutes</label>
+        </div>
+        <div class="time" readonly>
+          <input type="text" /><br />
+          <label for="seconds">Seconds</label>
+        </div>
+      </div>
+    </div>
+    <div class="link">
+      <a href="#" onclick="playVideo()">Watch Trailer</a>
+      <div id="player"></div>
+
+      <script>
+        // 2. This code loads the IFrame Player API code asynchronously.
+        var tag = document.createElement("script");
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName("script")[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // 3. This function creates an <iframe> (and YouTube player)
+        //    after the API code downloads.
+        var player;
+        function onYouTubeIframeAPIReady() {
+          player = new YT.Player("player", {
+            videoId: "JWD6iXCsF4E",
+            playerVars: {
+              playsinline: 1,
+            },
+          });
+        }
+
+        // 5. The API calls this function when the player's state changes.
+        //    The function indicates that when playing a video (state=1),
+        //    the player should play for six seconds and then stop.
+        var done = false;
+
+        function playVideo() {
+          player.playVideo();
+        }
+      </script>
+    </div>
+
+    <script src="timer.js"></script>
+  </body>
+</html>
